@@ -117,45 +117,58 @@ int game_load_board(struct game *game, int player, char * spec) {
 
         if(player == 1){
             GAME->status = PLAYER_0_TURN;
-        } else {
+        }
+        else {
             GAME->status = CREATED;
         }
         if((d == -1) || ((x < 0) || (y < 0)) || (j != 15)){
             return -1;
-        } else if((current == 67) && (array[0] == 0)){
+        }
+        else if((current == 67) && (array[0] == 0)){
             d = add_ship_horizontal(&GAME->players[player], x, y, 5);
             array[0] = 1;
-        } else if((current == 99) && (array[0] == 0)){
+        }
+        else if((current == 99) && (array[0] == 0)){
             d = add_ship_vertical(&GAME->players[player], x, y, 5);
             array[0] = 1;
-        } else if((current == 66) && (array[1] == 0)) {
+        }
+        else if((current == 66) && (array[1] == 0)) {
             d = add_ship_horizontal(&GAME->players[player], x, y, 4);
             array[1] = 1;
-        } else if((current == 98) && (array[1] == 0)) {
+        }
+        else if((current == 98) && (array[1] == 0)) {
             d = add_ship_vertical(&GAME->players[player], x, y, 4);
             array[1] = 1;
-        } else if((current == 68) && (array[2] == 0)) {
+        }
+        else if((current == 68) && (array[2] == 0)) {
             d = add_ship_horizontal(&GAME->players[player], x, y, 3);
             array[2] = 1;
-        } else if((current== 100) && (array[2] == 0)) {
+        }
+        else if((current== 100) && (array[2] == 0)) {
             d = add_ship_vertical(&GAME->players[player], x, y, 3);
             array[2] = 1;
-        } else if((current == 83) && (array[3] == 0)) {
+        }
+        else if((current == 83) && (array[3] == 0)) {
             d = add_ship_horizontal(&GAME->players[player], x, y, 3);
             array[3] = 1;
-        } else if((current == 115) && (array[3] == 0)) {
+        }
+        else if((current == 115) && (array[3] == 0)) {
             d = add_ship_vertical(&GAME->players[player], x, y, 3);
             array[3] = 1;
-        } else if((current == 80) && (array[4] == 0)) {
+        }
+        else if((current == 80) && (array[4] == 0)) {
             d = add_ship_horizontal(&GAME->players[player], x, y, 2);
             array[4] = 1;
-        } else if((current == 112) && (array[4] == 0)) {
+        }
+        else if((current == 112) && (array[4] == 0)) {
             d = add_ship_vertical(&GAME->players[player], x, y, 2);
             array[4] = 1;
-        } else if(current == 71) {
+        }
+        else if(current == 71) {
             GAME->players[player].ships = GAME->players[player].ships | xy_to_bitval(0,0);
             return 1;
-        } else {
+        }
+        else {
             d = -1;
         }
     }
